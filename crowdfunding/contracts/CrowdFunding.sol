@@ -55,8 +55,9 @@ contract CrowdFunding {
     }
 
     // method to fetch donators
-    function getDonators(uint256 _id) view public returns{address[] memory, uint256[] memory}
+    function getDonators(uint256 _id) view public returns(address[] memory, uint256[] memory){
         return (campaigns[_id].donators, campaigns[_id].donations);
+    }
 
     
     // method to fetch campaigns
