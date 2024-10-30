@@ -18,6 +18,7 @@ contract CrowdFunding {
 
     uint256 public numberOfCampaigns = 0;
 
+    // method to create campaigns
     function createCampaign(address _owner, string memory _title, string memory _description, uint256 _target,
     uint256 _deadline, string memory _image) public returns(uint256){
         Campaign storage campaign = campaigns[numberOfCampaigns];
@@ -38,6 +39,7 @@ contract CrowdFunding {
 
     }
 
+    // method to donate to campaigns
     function donateToCampaign(uint256 _id)public payable{
         uint256 amount = msg.value;
 
@@ -52,11 +54,20 @@ contract CrowdFunding {
         }
     }
 
+    // method to fetch donators
     function getDonators(uint256 _id) view public returns{address[] memory, uint256[] memory}
         return (campaigns[_id].donators, campaigns[_id].donations);
 
     
-    function getCampaigns(){
-        
+    // method to fetch campaigns
+    function getCampaigns()public view returns (Campaign[] memory){
+        Campaign[] memory allCampaigns = new Campaign[](numberOfCampaigns);
+
+        for (uint i=0; i< numberOfCampaigns; i++)
+        {
+            Campaign storage item = campaigns[i];
+            allCampaigns[i] = item;
+        }
+        return allCampaigns;
     }
 }
