@@ -5,6 +5,7 @@ import { ThirdwebProvider } from '@thirdweb-dev/react';
 import { ChainId } from '@thirdweb-dev/sdk'; // Use ChainId
 
 import WelcomeComponent from './App'; // Ensure it matches the exported component name
+import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement); // Ensure type is specified
 
