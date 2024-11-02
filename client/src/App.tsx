@@ -1,12 +1,15 @@
 // App.tsx
 import React from 'react';
-import {Route, Routes} from 'react-router-dom';
+import {Route, Routes, BrowserRouter as Router} from 'react-router-dom';
 
 import {CampaignDetails, CreateCampaign, Home, Profile} from './pages';
 import {Navbar, Sidebar} from './components';
+import { StateContextProvider } from './context'; //added with reference to gpt
 
 const WelcomeComponent: React.FC = () => {
   return (
+    //added afterwards
+    <StateContextProvider> 
     <div className = "relative sm:-8 p-4 bg-[#13131a] min-h-screen flex flex-row">
       <div className="sm:flex hidden mr-10 relative">
           <Sidebar/>
@@ -21,6 +24,7 @@ const WelcomeComponent: React.FC = () => {
           </Routes>
       </div>
     </div>
+    </StateContextProvider>
   );
 };
 
