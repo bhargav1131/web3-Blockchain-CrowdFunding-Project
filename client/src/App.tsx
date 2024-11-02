@@ -5,11 +5,12 @@ import {Route, Routes, BrowserRouter as Router} from 'react-router-dom';
 import {CampaignDetails, CreateCampaign, Home, Profile} from './pages';
 import {Navbar, Sidebar} from './components';
 import { StateContextProvider } from './context'; //added with reference to gpt
+import { contractAddress } from './constants';
 
-const WelcomeComponent: React.FC = () => {
+const App: React.FC = () => {
   return (
     //added afterwards
-    <StateContextProvider> 
+    <StateContextProvider contractAddress={contractAddress}> 
     <div className = "relative sm:-8 p-4 bg-[#13131a] min-h-screen flex flex-row">
       <div className="sm:flex hidden mr-10 relative">
           <Sidebar/>
@@ -21,6 +22,9 @@ const WelcomeComponent: React.FC = () => {
 
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/create-campaign" element={<CreateCampaign />} />
+            <Route path="/campaign-details/:id" element={<CampaignDetails />} />
           </Routes>
       </div>
     </div>
@@ -28,4 +32,4 @@ const WelcomeComponent: React.FC = () => {
   );
 };
 
-export default WelcomeComponent; 
+export default App; 
