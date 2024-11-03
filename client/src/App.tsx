@@ -10,7 +10,7 @@ import { contractAddress } from './constants';
 const App: React.FC = () => {
   return (
     //added afterwards
-    <StateContextProvider contractAddress={contractAddress}> 
+    // <StateContextProvider contractAddress={contractAddress}> 
     <div className = "relative sm:-8 p-4 bg-[#13131a] min-h-screen flex flex-row">
       <div className="sm:flex hidden mr-10 relative">
           <Sidebar/>
@@ -28,7 +28,7 @@ const App: React.FC = () => {
           </Routes>
       </div>
     </div>
-    </StateContextProvider>
+    // </StateContextProvider>
   );
 };
 

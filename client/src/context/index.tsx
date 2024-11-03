@@ -1,5 +1,4 @@
 import React, { useContext, createContext } from 'react';
-
 import { useAddress, useContract, useMetamask, useContractWrite } from '@thirdweb-dev/react';
 import { ethers } from 'ethers';
 import { EditionMetadataWithOwnerOutputSchema } from '@thirdweb-dev/sdk';
@@ -8,7 +7,7 @@ const StateContext = createContext();
 
 export const StateContextProvider = ({ children }) => {
   const contractAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
-  const { contract } = useContract(contractAddress);
+  const { contract} = useContract(contractAddress);
   const { mutateAsync: createCampaign } = useContractWrite(contract, 'createCampaign');
 
   const address = useAddress();
